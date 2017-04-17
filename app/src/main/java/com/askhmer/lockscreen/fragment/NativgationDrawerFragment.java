@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class NativgationDrawerFragment extends Fragment {
     private ArrayList<VideoNewFeed> videoNewFeeds = new ArrayList<>();
     private AdpterNewFeed adpterNewFeed;
     private int currentPage = 1;
+    private String startRowId;
     private boolean loading = true;
     private int pastVisiblesItems, visibleItemCount, totalItemCount;
     private LinearLayout retryLinearLayout;
@@ -91,7 +93,14 @@ public class NativgationDrawerFragment extends Fragment {
      * http://testpotal.medayi.com/funapi.php?rows=5&page=2
      */
     private void requestLoadData(final boolean isPagination) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://testpotal.medayi.com/funapi.php?rows=5&page="+ currentPage ++,
+        String url = "";
+        if (!isPagination) {
+            url = "http://testpotal.medayi.com/funapi.php?rows=5&page="+ currentPage ++ ;
+        }else {
+            url = "http://testpotal.medayi.com/funapi.php?rows=5&page=" + currentPage ++ + "&start_row_id=" + startRowId;
+        }
+        Log.e("url_show", url);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -108,6 +117,8 @@ public class NativgationDrawerFragment extends Fragment {
                             e.printStackTrace();
                         } finally {
                             if (!isPagination) {
+                                startRowId = videoNewFeeds.get(0).getId();
+                                Log.e("start_id", startRowId);
                                 adpterNewFeed = new AdpterNewFeed(videoNewFeeds, getActivity());
                                 recyclerView.setAdapter(adpterNewFeed);
                             }else {
@@ -123,7 +134,6 @@ public class NativgationDrawerFragment extends Fragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), "error loading", Toast.LENGTH_SHORT).show();
                 if (isPagination == false) {
                     recyclerView.setVisibility(View.GONE);
                     retryLinearLayout.setVisibility(View.VISIBLE);

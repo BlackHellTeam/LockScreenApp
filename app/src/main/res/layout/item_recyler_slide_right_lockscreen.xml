@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitCenter"
                     android:id="@+id/image_view"
                     android:layout_width="match_parent"
                     android:layout_height="200dp" />
@@ -81,6 +81,7 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:text="Hit: "
+                android:maxLength="50"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

@@ -109,6 +109,7 @@ public class MainActivityTab extends AppCompatActivity {
         adapter.addFrag(new TwoFragment(), "Profile");
         adapter.addFrag(new FourFragment(), "Other");
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(4);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

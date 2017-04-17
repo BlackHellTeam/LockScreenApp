@@ -1,292 +1,523 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <ScrollView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:isScrollContainer="true"
-            android:weightSum="7">
+            android:background="@drawable/border_shadow"
+            android:gravity="center"
+            android:layout_weight="3.7">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@drawable/border_shadow"
-                android:gravity="center"
-                android:layout_weight="3.7">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"/>
 
+                <!--
+                <com.daimajia.slider.library.SliderLayout
+                    android:layout_weight="1"
+                    android:id="@+id/slider_layout"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="5dp"
+                    android:layout_height="180dp"/>
+                    -->
                 <LinearLayout
+                    android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitCenter"/>
-
-                    <!--
-                    <com.daimajia.slider.library.SliderLayout
-                        android:layout_weight="1"
-                        android:id="@+id/slider_layout"
-                        android:layout_width="match_parent"
-                        android:paddingBottom="5dp"
-                        android:layout_height="180dp"/>
-                        -->
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
-                        android:layout_height="180dp">
-
-                        <com.daimajia.slider.library.SliderLayout
-                            android:id="@+id/slider"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitCenter"/>
-                </LinearLayout>
-
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="Download user"
-                    android:textSize="14dp"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="#8fbadf"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center">
-                    <TextView
-                        android:textSize="12dp"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="0%"
-                        android:textColor="@color/white"/>
-                    <com.askhmer.lockscreen.utils.TextProgressBar
-                        android:layout_weight="1"
-                        style="?android:attr/progressBarStyleHorizontal"
+                    android:weightSum="2"
+                    android:layout_height="180dp">
+
+                    <com.daimajia.slider.library.SliderLayout
+                        android:id="@+id/slider"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:progressDrawable="@drawable/progress_style"
-                        android:id="@+id/progressBar2"/>
-                    <TextView
-                        android:textSize="12dp"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="100%"
-                        android:textColor="@color/white"/>
+                        android:layout_height="match_parent" />
+
                 </LinearLayout>
 
-
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"/>
             </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Download user"
+                android:textSize="14dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="#8fbadf"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:textSize="12dp"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0%"
+                    android:textColor="@color/white"/>
+                <com.askhmer.lockscreen.utils.TextProgressBar
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:progressDrawable="@drawable/progress_style"
+                    android:id="@+id/progressBar2"/>
+                <TextView
+                    android:textSize="12dp"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="100%"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_weight="3.3">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:background="@color/white"
-                android:layout_weight="3.3">
+                android:gravity="center_horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/perfect_sex_male_sel"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" Name"
+                            android:textSize="16dp"
+                            android:textColor="#a6a6a6"/>
+
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/perfect_sex_male_sel"/>
-                            <TextView
-                                android:id="@+id/txt_user_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=" Name"
-                                android:textSize="16dp"
-                                android:textColor="#a6a6a6"/>
-
-
-                        </LinearLayout>
-
+                        android:orientation="horizontal">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1.7"
-                                android:gravity="center|right">
-                                <ImageView
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:src="@drawable/point_new"
-                                    android:scaleType="fitCenter"
-                                    android:layout_marginRight="5dp"/>
-                            </LinearLayout>
+                            android:layout_weight="1.7"
+                            android:gravity="center|right">
+                            <ImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:src="@drawable/point_new"
+                                android:scaleType="fitCenter"
+                                android:layout_marginRight="5dp"/>
+                        </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
                             <LinearLayout
-                                android:layout_weight="1"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-                                <LinearLayout
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_weight="1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginRight="10dp"
-                                    android:orientation="horizontal">
-                                    <TextView
-                                        android:layout_weight="1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textSize="14dp"
-                                        android:text="@string/your_balance"/>
-                                    <LinearLayout
-                                        android:layout_weight="1"
-                                        android:layout_width="match_parent"
-                                        android:gravity="right"
-                                        android:layout_height="match_parent">
-
-                                        <ImageView
-                                            android:id="@+id/image_view_info"
-                                            android:src="@drawable/ic_info"
-                                            android:layout_width="20dp"
-                                            android:clickable="true"
-                                            android:background="@drawable/bg_selector"
-                                            android:layout_height="match_parent" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <TextView
-                                    android:background="@drawable/bg_selector"
-                                    android:id="@+id/tv_mypoint"
+                                    android:textSize="14dp"
+                                    android:text="@string/your_balance"/>
+                                <LinearLayout
+                                    android:layout_weight="1"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:text=""
-                                    android:gravity="bottom|right"
-                                    android:layout_marginRight="15dp"
-                                    android:textSize="50dp"
-                                    android:textColor="@color/colorPrimaryDark"/>
+                                    android:gravity="right"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/image_view_info"
+                                        android:src="@drawable/ic_info"
+                                        android:layout_width="20dp"
+                                        android:clickable="true"
+                                        android:background="@drawable/bg_selector"
+                                        android:layout_height="match_parent" />
+
+                                </LinearLayout>
                             </LinearLayout>
-
-
+                            <TextView
+                                android:background="@drawable/bg_selector"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text=""
+                                android:gravity="bottom|right"
+                                android:layout_marginRight="15dp"
+                                android:textSize="50dp"
+                                android:textColor="@color/colorPrimaryDark"/>
                         </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_shadow">
+
+                    <LinearLayout
+                        android:id="@+id/medayi_news"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:background="@drawable/bg_selector"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="7.5dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="15dp">
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/medayi_news"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/madayi_news"
+                            android:gravity="center"
+                            android:textSize="14dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/red_btn_bg_color"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:background="@drawable/bg_selector"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="7.5dp">
+
+                        <ImageView
+                            android:layout_width="87dp"
+                            android:layout_height="87dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/medayi_share"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/medayi_share"
+                            android:gravity="center"
+                            android:textSize="14dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/red_btn_bg_color"/>
+
                     </LinearLayout>
 
 
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/image_back"/>
+
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="5">
+
+
+            <LinearLayout
+                android:paddingLeft="15dp"
+                android:layout_weight="4.6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_id"/>
+
+                <TextView
+                    android:id="@+id/txt_user_name"
+                    android:layout_marginLeft="15dp"
+                    android:text="ID: 012 555 555"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="0.4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="390dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp">
+
+                            <!--<ImageView
+                                android:visibility="gone"
+                                android:rotation="40"
+                                android:src="@color/red_light"
+                                android:layout_centerInParent="true"
+                                android:id="@+id/image_process"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />-->
+
+                           <!-- <ImageView
+                                android:layout_marginBottom="-7dp"
+                                android:layout_alignParentBottom="true"
+                                android:src="@color/back"
+                                android:id="@+id/image_process_over"
+                                android:layout_width="230dp"
+                                android:layout_height="230dp"
+                                android:layout_marginLeft="62dp"/>-->
+
+                            <ProgressBar
+                                android:id="@+id/circular_progress_bar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="262dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:indeterminate="false"
+                                android:rotation="130"
+                                android:progressDrawable="@drawable/circular_progressbar" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_gold"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="16dp"
+                                    android:text="TOTAL POINTS"/>
+
+                                <TextView
+                                    android:id="@+id/tv_mypoint"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="50dp"
+                                    android:textStyle="bold"
+                                    android:text="30.000"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="16dp"
+                                    android:text="TODAY POINT"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="30dp"
+                                    android:textStyle="bold"
+                                    android:textColor="#4FC1E9"
+                                    android:text="500"/>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        android:background="@drawable/border_shadow">
+                        android:orientation="vertical"
+                        android:weightSum="2">
 
                         <LinearLayout
-                            android:id="@+id/medayi_news"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:clickable="true"
-                            android:background="@drawable/bg_selector"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="7.5dp"
-                            android:layout_marginBottom="15dp"
-                            android:layout_marginLeft="15dp">
+                            android:orientation="horizontal">
 
-                            <ImageView
+                            <LinearLayout
+                                android:background="#4FC1E9"
+                                android:gravity="center"
                                 android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/medayi_news"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/madayi_news"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_download"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:background="@color/white"
                                 android:gravity="center"
-                                android:textSize="14dp"
-                                android:layout_marginTop="10dp"
-                                android:textColor="@color/red_btn_bg_color"/>
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_marginLeft="25dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_information"/>
+
+                               <LinearLayout
+                                   android:layout_width="match_parent"
+                                   android:layout_height="match_parent"
+                                   android:gravity="center_vertical"
+                                   android:orientation="vertical">
+
+                                   <TextView
+                                       android:textSize="12dp"
+                                       android:text="APP INFO:"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content" />
+
+                                   <TextView
+                                       android:textSize="12dp"
+                                       android:text="Please update your app"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content" />
+
+                               </LinearLayout>
+
+                            </LinearLayout>
+
                         </LinearLayout>
+
                         <LinearLayout
-                            android:id="@+id/medayi_sharing"
+                            android:background="#6e6f73"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:clickable="true"
-                            android:background="@drawable/bg_selector"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="15dp"
-                            android:layout_marginBottom="15dp"
-                            android:layout_marginLeft="7.5dp">
-
-                            <ImageView
-                                android:layout_width="87dp"
-                                android:layout_height="87dp"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/medayi_share"/>
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/medayi_share"
+                                android:clickable="true"
+                                android:layout_marginRight="0.3dp"
+                                android:textSize="16dp"
+                                android:textColor="#ffffff"
+                                android:background="@drawable/btn_one_fragram"
                                 android:gravity="center"
-                                android:textSize="14dp"
-                                android:layout_marginTop="10dp"
-                                android:textColor="@color/red_btn_bg_color"/>
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="See More Advertising"/>
+
+                            <TextView
+                                android:clickable="true"
+                                android:id="@+id/medayi_sharing"
+                                android:layout_marginLeft="0.3dp"
+                                android:textSize="16dp"
+                                android:textColor="#ffffff"
+                                android:background="@drawable/btn_one_fragram"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Share App"/>
 
                         </LinearLayout>
-
 
                     </LinearLayout>
 
                 </LinearLayout>
+
             </LinearLayout>
-<!--            <View
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/white"/>-->
+
         </LinearLayout>
-    </ScrollView>
+
+    </RelativeLayout>
+
 </LinearLayout>

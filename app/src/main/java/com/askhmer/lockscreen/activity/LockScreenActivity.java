@@ -296,7 +296,11 @@ public class LockScreenActivity extends Activity implements
 	protected void onStop() {
 		super.onStop();
 		unlockHomeButton();
-		unregisterReceiver(mReceiver);
+		try {
+			unregisterReceiver(mReceiver);
+		}catch (NullPointerException e) {
+
+		}
 		pathFile.clear();
 		if (fullScreenImageAdapter != null) {
 			fullScreenImageAdapter.clearData();
@@ -496,6 +500,7 @@ public class LockScreenActivity extends Activity implements
 				new Response.Listener<String>() {
 					@Override
 					public void onResponse(String response) {
+						Log.e("error_show", response);
 						try {
 							JSONObject jsonObj = new JSONObject(response);
 							if (jsonObj.getString("rst").equals("110")) {

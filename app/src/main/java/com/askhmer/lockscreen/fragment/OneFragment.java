@@ -1,5 +1,6 @@
 package com.askhmer.lockscreen.fragment;
 
+import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -12,16 +13,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.transition.Slide;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -32,8 +33,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.askhmer.lockscreen.R;
-import com.askhmer.lockscreen.activity.DetailTopUp;
-import com.askhmer.lockscreen.model.TopUpDetail;
 import com.askhmer.lockscreen.network.API;
 import com.askhmer.lockscreen.network.MySingleton;
 import com.askhmer.lockscreen.utils.ImageSliderWithFragment;
@@ -46,7 +45,6 @@ import com.daimajia.slider.library.SliderLayout;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ListHolder;
 import com.orhanobut.dialogplus.OnItemClickListener;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,10 +61,14 @@ public class OneFragment extends Fragment {
 
     private SharedPreferencesFile mSharedPreferencesFile;
     private TextView txtMyPoint, txtMyUserName;
-    private LinearLayout medayiPage, medayiSharing;
+    private LinearLayout medayiPage;
+    private TextView medayiSharing;
     private TextProgressBar progressBar;
     private View oneFragmentView;
     private SliderLayout sliderLayout;
+    private ImageView imageView;
+    private ImageView imageViewProcess/*, imageViewOver*/;
+    private ProgressBar mprogressBar;
 
     public OneFragment(){}
 
@@ -87,13 +89,16 @@ public class OneFragment extends Fragment {
         progressBar = (TextProgressBar) oneFragmentView.findViewById(R.id.progressBar2);
         sliderLayout = (SliderLayout) oneFragmentView.findViewById(R.id.slider);
         ImageView imageView = (ImageView) oneFragmentView.findViewById(R.id.image_view_info);
+        /*imageViewProcess = (ImageView) oneFragmentView.findViewById(R.id.image_process);*/
+        /*imageViewOver = (ImageView) oneFragmentView.findViewById(R.id.image_process_over);*/
+        mprogressBar = (ProgressBar) oneFragmentView.findViewById(R.id.circular_progress_bar);
 
         /*set slide image*/
         new ImageSliderWithFragment(sliderLayout, getContext());
         checkInternetCon();
 
         medayiPage = (LinearLayout)oneFragmentView.findViewById(R.id.medayi_news);
-        medayiSharing = (LinearLayout) oneFragmentView.findViewById(R.id.medayi_sharing);
+        medayiSharing = (TextView) oneFragmentView.findViewById(R.id.medayi_sharing);
 
         txtMyPoint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -298,7 +303,55 @@ public class OneFragment extends Fragment {
 
           /*request count user*/
         requestCountUser();
+
+        /*process*/
+       /* Bitmap bitmap = Bitmap.createBitmap(500,500, Bitmap.Config.ARGB_8888);
+        int radius = 240;
+        int center_x = bitmap.getWidth()/2;
+        int center_y = bitmap.getHeight()/2;
+
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+
+        paint.setShader(new LinearGradient(220, 0, 0, bitmap.getHeight(), getResources().getColor(R.color.yellow_pro),
+                getResources().getColor(R.color.blue_pro), Shader.TileMode.MIRROR));
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(12);
+
+        Canvas canvas = new Canvas(bitmap);
+
+        final RectF oval = new RectF();
+        oval.set(center_x - radius, center_y - radius, center_x + radius, center_y + radius);
+        Path path = new Path();
+        path.addArc(oval, 90, 230);
+
+        canvas.drawPath(path, paint);
+
+        imageViewProcess.setImageBitmap(bitmap);*/
+        /*circleImageOver();*/
+        ObjectAnimator anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 65);
+        anim.setDuration(2500);
+        /*anim.setInterpolator(new DecelerateInterpolator());*/
+        anim.start();
     }
+
+    /*private void circleImageOver(){
+        Bitmap bitmap = Bitmap.createBitmap(500,500, Bitmap.Config.ARGB_8888);
+        int radius = 240;
+        int center_x = bitmap.getWidth()/2;
+        int center_y = bitmap.getHeight()/2;
+
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setColor(getResources().getColor(R.color.cc_color));
+        paint.setStyle(Paint.Style.FILL);
+
+        Canvas canvas = new Canvas(bitmap);
+
+        canvas.drawCircle(center_x, center_y, radius, paint);
+
+        imageViewOver.setImageBitmap(bitmap);
+    }*/
 
     private void sharedVia(String packageName) {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);

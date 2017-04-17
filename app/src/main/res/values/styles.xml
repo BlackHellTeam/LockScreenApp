@@ -80,9 +80,9 @@
     <style name="MyTabTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar" tools:ignore="NewApi">false</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#E0EDEE</item>
+        <item name="colorPrimaryDark">#c1eaed</item>
+        <item name="colorAccent">#231F20</item>
     </style>
 
     <!-- Base application theme. -->

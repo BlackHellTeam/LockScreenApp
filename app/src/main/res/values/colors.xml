@@ -33,4 +33,13 @@
     <color name="shadow">#689c9c9c</color>
     <color name="back_color2">#313131</color>
     <color name="tran_back">#c5202020</color>
+
+    <color name="blue">#4FC1E9</color>
+    <color name="btn_gray">#A7A9AC</color>
+    <color name="btn_gray_dark">#848587</color>
+
+    <color name="cc_color">#F0F1E1</color>
+
+    <color name="blue_pro">#00AEEF</color>
+    <color name="yellow_pro">#F9ED32</color>
 </resources>
